@@ -11,10 +11,9 @@ public class SubjectController : MonoBehaviour
     [SerializeField] private float lookSpeed = 10f;
     [SerializeField] private float moveForce = 0.1f;
     private Vector2 rotation = Vector2.zero;
-    private Animator animator;
     private CharacterController characterController;
     void OnEnable() {
-        animator = GetComponent<Animator>();
+       
         rb = GetComponent<Rigidbody>();
         characterController = GetComponent<CharacterController>();
     }
@@ -23,11 +22,7 @@ public class SubjectController : MonoBehaviour
     private void FixedUpdate() {
         velocity = rb.velocity;      //to get a Vector3 representation of the velocity
         float speed = velocity.magnitude;             // to get magnitude
-        if(speed > 0.5f) {
-            animator.SetBool("IsWalking", true);
-        } else {
-            animator.SetBool("IsWalking", false);
-        }
+
 
     }
     
